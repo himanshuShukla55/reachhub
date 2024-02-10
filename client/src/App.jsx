@@ -1,19 +1,23 @@
-import axios from "axios";
-import React, { useEffect } from "react";
+import React from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import { Home, Login, SignUp } from "./routes";
+import { ToastContainer } from "react-toastify";
+
+import "react-toastify/dist/ReactToastify.css";
 
 const App = () => {
-  useEffect(() => {
-    const getData = async () => {
-      try {
-        const res = await axios.get(
-          "https://lichess.org/api/player/top/50/classical"
-        );
-        console.log(res.data);
-      } catch (error) {}
-    };
-    getData();
-  }, []);
-  return <div>Hello World</div>;
+  return (
+    <>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<SignUp />} />
+      </Routes>
+      <ToastContainer />
+    </>
+  );
 };
 
 export default App;
