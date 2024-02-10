@@ -27,10 +27,6 @@ const userRouter = Router();
  *                  type: string
  *                  description : The user's password.
  *                  example: Alex@14
- *               role:
- *                  type: string,
- *                  description : The user's role
- *                  example: VIEW_ALL
  *     responses:
  *       201:
  *         description: CREATED
