@@ -29,6 +29,10 @@ const swaggerDefinition = {
       url: `http://localhost:${port}`,
       description: "Development server",
     },
+    {
+      url: "https://chesshub-backend.onrender.com",
+      description: "Production server",
+    },
   ],
 };
 

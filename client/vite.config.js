@@ -9,8 +9,8 @@ export default defineConfig({
     host: true,
     proxy: {
       "/api": {
-        target: "http://localhost:8000/",
-        crossOrigin: true,
+        target: "https://chesshub-backend.onrender.com",
+        changeOrigin: true,
       },
     },
   },
