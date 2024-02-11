@@ -13,13 +13,13 @@ const RatingChart = ({ data }) => {
       width={600}
       height={300}
       data={data
-        .map((point, index) => ({ name: index, uv: point[3] }))
+        .map((point, index) => ({ day: index, rating: point[3] }))
         .slice(0, Math.min(30, data.length))}
       margin={{ top: 5, right: 20, bottom: 5, left: 0 }}
     >
-      <Line type="monotone" dataKey="uv" stroke="#000" />
+      <Line type="monotone" dataKey="rating" stroke="#000" />
       <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
-      <XAxis dataKey="name" />
+      <XAxis dataKey="day" />
       <YAxis />
       <Tooltip />
     </LineChart>
