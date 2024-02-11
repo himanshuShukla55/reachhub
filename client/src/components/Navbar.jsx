@@ -4,6 +4,7 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { useDispatch, useSelector } from "react-redux";
 import { userLogout } from "../redux/reducers/users/actionCreators";
+import { toast } from "react-toastify";
 
 const Navbar = () => {
   const [show, setShow] = useState(false);
@@ -12,7 +13,7 @@ const Navbar = () => {
   let navElements = [
     {
       id: 1,
-      label: "Home",
+      label: "Dashboard",
       path: "/",
     },
   ];
@@ -51,7 +52,10 @@ const Navbar = () => {
               <Link
                 to="/login"
                 className="hover:bg-white hover:text-black p-3 rounded-lg"
-                onClick={() => dispatch(userLogout())}
+                onClick={() => {
+                  toast.success("User logged out!");
+                  dispatch(userLogout());
+                }}
               >
                 Logout
               </Link>
@@ -85,6 +89,7 @@ const Navbar = () => {
             className="hover:bg-white hover:text-black p-3 w-full text-center"
             onClick={() => {
               setShow(false);
+              toast.success("User logged out!");
               dispatch(userLogout());
             }}
           >

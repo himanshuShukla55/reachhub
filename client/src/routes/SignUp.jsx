@@ -33,39 +33,21 @@ const SignUp = () => {
           setLoading(true);
           await axios.post("/api/users/signup", values);
           setLoading(false);
-          toast.success("Sign Up Successfull!", {
-            position: "top-right",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "dark",
-          });
+          toast.success("Sign Up Successfull!");
           resetForm();
           navigate("/login");
         } catch (error) {
           setLoading(false);
           const message = error.response.data.message;
           if (message.includes("duplicate key"))
-            toast.error("Email already Registered!", {
-              position: "top-right",
-              autoClose: 5000,
-              hideProgressBar: false,
-              closeOnClick: true,
-              pauseOnHover: true,
-              draggable: true,
-              progress: undefined,
-              theme: "dark",
-            });
+            toast.error("Email already Registered!");
           else console.log(message);
         }
       },
     });
   return (
     <>
-      <div className="absolute top-0 flex h-[100vh] w-[100vw] bg-black items-center justify-center ">
+      <div className="absolute top-0 flex h-[100vh] w-[100vw] bg-mobile-cover lg:bg-desktop-cover bg-cover bg-center items-center justify-center ">
         <div className="relative bg-white rounded-lg py-10">
           <form
             onSubmit={handleSubmit}

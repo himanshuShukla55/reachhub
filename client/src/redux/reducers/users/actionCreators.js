@@ -29,29 +29,11 @@ export const loginUser = (values, resetForm) => async (dispatch) => {
   try {
     dispatch(userLoginStart());
     const { data } = await axios.post("/api/users/login", values);
-    toast.success("Login Successfull!", {
-      position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "dark",
-    });
+    toast.success("Login Successfull!");
     dispatch(userLoginSuccess(data.data));
     resetForm();
   } catch (error) {
     dispatch(userLoginFailed(error.response.data));
-    toast.error(error.response.data.message, {
-      position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "dark",
-    });
+    toast.error(error.response.data.message);
   }
 };

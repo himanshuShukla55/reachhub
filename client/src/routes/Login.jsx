@@ -26,7 +26,7 @@ const Login = () => {
   return auth ? (
     <Navigate to="/" />
   ) : (
-    <div className="absolute top-0 flex h-[100vh] w-[100vw] bg-black items-center justify-center ">
+    <div className="absolute top-0 flex h-[100vh] w-[100vw] items-center justify-center bg-mobile-cover lg:bg-desktop-cover bg-cover bg-center">
       <div className="relative bg-white rounded-lg items-center py-10">
         <form
           onSubmit={handleSubmit}
